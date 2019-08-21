@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Coming soon</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="shortcut icon" href="stopwatch-solid.ico" type="image/x-icon">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="masthead animate-bottom" id="head">
+        <div class="d-flex">
+            <div class="container text-center my-auto">
+                <h1 class="mb-1 text-info">Events Time Counter</h1>
+                <h3 class="mb-5 text-white">
+                    <em>Create your coming soon Events by </em> <a href="https://nayif03.github.io/Portfolio/"
+                        target="_blank">GHAWI<i class="fab fa-wolf-pack-battalion ml-1"></i></a>
+                </h3>
+                <a href="#inputArea" onclick="showInpArea()"
+                    class="btn btn-primary btn-xl js-scroll-trigger text-white">let's start</a>
+            </div>
+            <div class="overlay"></div>
+        </div>
+
+    </header>
+
+
+    <!-- input area -->
+    <section class="w-100 my-5 animate-bottom" id="inputArea" style="display:none">
+        <div class="container">
+            <form>
+                <div class="mb-3 p-2 bg-info text-white rounded">
+                    <h4>Date of your Event :</h4>
+                </div>
+                <div class="row ml-1">
+                    <div class="form-group">
+                        <label for="year">Year: </label>
+                        <input type="number" class="form-control" value="2019" id="year" min="2019">
+                    </div>
+                    <div class="form-group">
+                        <label for="month">Month: </label>
+                        <select name="" id="monthSelect" class="form-control">
+                            <option value="0">January</option>
+                            <option value="1">February</option>
+                            <option value="2">March</option>
+                            <option value="3">April</option>
+                            <option value="4">May</option>
+                            <option value="5">Jun</option>
+                            <option value="6">July</option>
+                            <option value="7">August</option>
+                            <option value="8">September</option>
+                            <option value="9">October</option>
+                            <option value="10">November</option>
+                            <option value="11">December</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="day">Day: </label>
+                        <input type="number" class="form-control" value="1" id="day" min="1" max="31">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="hour">Hours: </label>
+                        <input type="number" class="form-control" value="1" id="hour" min="0" max="23">
+                    </div>
+                    <div class="form-group">
+                        <label for="minute">Minutes: </label>
+                        <input type="number" class="form-control" value="0" id="minute" min="0" max="59">
+                    </div>
+                </div>
+                <div class="mb-3 p-2 bg-info text-white rounded">
+                    <h4>Details to your Event :</h4>
+                </div>
+                <div class="form-group">
+                    <label for="topic">Topic: </label>
+                    <input type="text" class="form-control" id="topic">
+                </div>
+                <div class="form-group">
+                    <label for="desc">Description: </label>
+                    <textarea class="form-control" id="desc" placeholder="write description for your event"
+                        rows="6"></textarea>
+                </div>
+                <button type="button" class="btn text-white btn-primary" onclick="runCounter();">Submit</button>
+            </form>
+
+        </div>
+    </section>
+
+    <!-- output area -->
+    <div class="main-area-wrapper animate-bottom" id="main" style="display:none">
+
+        <div class="main-area center-text" style="background-image:url(./assets/img/countdown-7-1600x900.jpg);">
+
+            <div class="display-table">
+                <div class="display-table-cell">
+
+                    <h1 class="title"><b id="outputTopic"></b></h1>
+                    <p class="desc font-white" id="outputDesc"></p>
+
+                    <div id="normal-countdown">
+
+                    </div>
+
+                    <a class="notify-btn" href="mailto:naif.nayoul@yahoo.com"><b>NOTIFY US</b></a>
+
+                    <ul class="social-btn">
+                        <li class="list-heading">Follow us for update</li>
+                        <li><a href="#"><i class="fab fa-facebook"></i> </a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-github-square"></i></a></li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div>
+        <button onclick="location.reload()">Back</button>
+    </div> -->
+    <footer class="footer text-center" id="footer">
+
+        <div class="container">
+            <p class="text-muted small mb-0">Copyright &copy; <a href="https://nayif03.github.io/Portfolio/"
+                    target="_blank">Nayif Nayoul</a> 2019</p>
+        </div>
+    </footer>
+
+
+
+
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+<script src="./assets/js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+</html>
